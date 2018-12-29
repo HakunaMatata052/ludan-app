@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>录单系统</title>
+    <link rel=stylesheet href=https://unpkg.com/element-ui@2.4.7/lib/theme-chalk/index.css> <style>
+    body{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    }
+    #app{
+    border-radius:0 0 8px 8px ;
+    overflow: hidden;
+    }
+    .el-aside ,{
+    margin-top: 10px;
+    }
+    #app > .el-container {
+    margin-top: 38px;
+    background: #fff;
+    }
+    .top-btn {
+    position: fixed;
+    top: 1px;
+    width: 100%;
+    padding: 10px 0 10px 10px;
+    height: 40px;
+    background: #ebeff2;
+    border-radius: 8px 8px 0 0;
+    z-index: 999;
+    box-sizing: border-box;
+    }
+    .top-btn .no-drag-top {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-app-region: no-drag;
+    z-index: 9999;
+    }
+    .top-btn .no-drag-left {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-app-region: no-drag;
+    z-index: 9999;
+    }
+    .top-btn .no-drag-right {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    -webkit-app-region: no-drag;
+    z-index: 9999;
+    }
+    #minbt,
+    #maxbt,
+    #closebt {
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    border-radius: 50%;
+    -webkit-app-region: no-drag;
+    }
+
+    #minbt {
+    background: #f2b026;
+    }
+
+    #maxbt {
+    background: #49c726
+    }
+
+    #closebt {
+    background: #f44741
+    }</style>
+    <link href=./static/css/app.26bd62d35fa9c741caceff340c0982d0.css rel=stylesheet>
+</head>
+
+<body class=indexbody>
+    <div class=top-btn style="-webkit-app-region: drag">
+        <div class="no-drag-top"></div>
+        <div class="no-drag-left"></div>
+        <div class="no-drag-right"></div>
+        <div id=closebt></div>
+        <div id=minbt></div>
+        <div id=maxbt></div>
+    </div>
+    <div id=app></div>
+    <script>var ipc = require('electron').ipcRenderer;
+    document.getElementById('maxbt').addEventListener('click', () => {
+      console.log('hello vscode!')
+      ipc.send('window-max');
+    })
+    document.getElementById('minbt').addEventListener('click', () => {
+      console.log('hello vscode!')
+      ipc.send('window-min');
+    })
+    document.getElementById('closebt').addEventListener('click', () => {
+      console.log('hello vscode!')
+      ipc.send('window-close');
+    })</script>
+    <script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js> </script> <script type=text/javascript
+        src=./static/js/vendor.9f262b7dcaeb365b814e.js> </script> <script type=text/javascript src=./static/js/app.f239e24a7cb5fa53e8e9.js>
+        </script> </body> </html>
